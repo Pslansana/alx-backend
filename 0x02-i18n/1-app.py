@@ -2,7 +2,7 @@
 """ This is a module run the index page on task 0 """
 
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template
 import flask_babel
 
 
@@ -20,16 +20,10 @@ class Config:
 app.config.from_object(Config)
 
 
-@babel.localeselector
-def get_locale():
-    """ This is a function that return the locale via request """
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
-
-
 @app.route('/')
 def index():
     """ This is a function that render index page """
-    return render_template('2-index.html')
+    return render_template('1-index.html')
 
 
 if __name__ == '__main__':
